@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { MapPin, Calendar, Plane, Mountain, Mail, Phone } from "lucide-react";
+import { MapPin, Calendar, Plane, Mountain, Mail, Phone, Home, HelpCircle } from "lucide-react";
 import heroImage from "@/assets/hero-mountain-venue.jpg";
 import couplePortrait from "@/assets/couple-portrait.jpg";
 import almatyMountains from "@/assets/almaty-mountains.jpg";
@@ -29,16 +29,29 @@ const Index = () => {
           <div className="flex items-center justify-between h-16">
             <button 
               onClick={() => scrollToSection('hero')}
-              className="font-serif text-lg font-semibold text-primary hover:opacity-80 transition-opacity"
+              className="font-serif text-lg font-semibold text-primary hover:opacity-80 transition-opacity flex items-center gap-2"
             >
-              SJ & E
+              <Mountain className="w-5 h-5 text-accent" />
+              Kim Chee
             </button>
             <div className="hidden md:flex items-center gap-6">
               <button onClick={() => scrollToSection('story')} className="text-sm hover:text-primary transition-colors">Our Story</button>
-              <button onClick={() => scrollToSection('wedding-day')} className="text-sm hover:text-primary transition-colors">Wedding Day</button>
-              <button onClick={() => scrollToSection('travel')} className="text-sm hover:text-primary transition-colors">Travel</button>
-              <button onClick={() => scrollToSection('stay')} className="text-sm hover:text-primary transition-colors">Stay</button>
-              <button onClick={() => scrollToSection('rsvp')} className="text-sm hover:text-primary transition-colors">RSVP</button>
+              <button onClick={() => scrollToSection('wedding-day')} className="text-sm hover:text-primary transition-colors flex items-center gap-1">
+                <Calendar className="w-4 h-4" />
+                Wedding Day
+              </button>
+              <button onClick={() => scrollToSection('travel')} className="text-sm hover:text-primary transition-colors flex items-center gap-1">
+                <MapPin className="w-4 h-4" />
+                Travel
+              </button>
+              <button onClick={() => scrollToSection('stay')} className="text-sm hover:text-primary transition-colors flex items-center gap-1">
+                <Home className="w-4 h-4" />
+                Stay
+              </button>
+              <button onClick={() => scrollToSection('rsvp')} className="text-sm hover:text-primary transition-colors flex items-center gap-1">
+                <Mail className="w-4 h-4" />
+                RSVP
+              </button>
             </div>
           </div>
         </div>
@@ -80,16 +93,18 @@ const Index = () => {
             <Button 
               size="lg" 
               onClick={() => scrollToSection('rsvp')}
-              className="bg-rsvp-highlight hover:bg-rsvp-highlight/90 text-foreground font-semibold"
+              className="bg-rsvp-highlight hover:bg-rsvp-highlight/90 text-foreground font-semibold gap-2"
             >
+              <Mail className="w-5 h-5" />
               RSVP
             </Button>
             <Button 
               size="lg" 
               variant="outline" 
               onClick={() => scrollToSection('travel')}
-              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-foreground"
+              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-foreground gap-2"
             >
+              <MapPin className="w-5 h-5" />
               Travel & Stay
             </Button>
           </div>
@@ -664,9 +679,10 @@ const Index = () => {
                 <div className="text-center">
                   <Button 
                     size="lg" 
-                    className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-12"
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-12 gap-2"
                     onClick={() => window.open('https://notion.so/your-rsvp-form', '_blank')}
                   >
+                    <Mail className="w-5 h-5" />
                     Submit RSVP / Отправить RSVP
                   </Button>
                   {/* TODO: Replace with actual RSVP form URL (Notion or other) */}
