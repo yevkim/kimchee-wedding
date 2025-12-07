@@ -28,29 +28,20 @@ const Index = () => {
         
         <div className="relative z-10 text-center text-foreground px-4">
           <h1 className="font-serif text-5xl md:text-8xl font-bold mb-4 animate-in fade-in duration-1000">
-            {t("Su June & Eugene", "Су Джун и Евгений")}
+            {t("June and Eugene", "Джун и Евгений")}
           </h1>
           <div className="space-y-2 text-base md:text-xl mb-8 animate-in fade-in duration-1000 delay-200">
             <p>{t(
-              "08.08.2026 · Sulusai, near Almaty, Kazakhstan",
-              "08.08.2026 · Сулуса́й, недалеко от Алматы, Казахстан"
+              "08.08.2026 · Almaty, Kazakhstan",
+              "08.08.2026 · Алматы, Казахстан"
             )}</p>
           </div>
           
-          <div className="max-w-2xl mx-auto mb-8 animate-in fade-in duration-1000 delay-300">
+          <div className="max-w-2xl mx-auto mb-10 animate-in fade-in duration-1000 delay-300">
             <p className="text-base md:text-xl font-light">
               {t(
                 "We're getting married in the mountains of Kazakhstan and would love for you to celebrate with us.",
                 "Мы женимся в горах Казахстана и очень хотим отпраздновать этот день вместе с вами."
-              )}
-            </p>
-          </div>
-
-          <div className="max-w-2xl mx-auto mb-10 animate-in fade-in duration-1000 delay-400">
-            <p className="text-sm md:text-base opacity-80">
-              {t(
-                "This page has everything you need to plan your trip, from how to get to Almaty to ideas for exploring after the wedding.",
-                "Здесь вы найдёте всю нужную информацию: как добраться до Алматы и чем заняться до и после свадьбы."
               )}
             </p>
           </div>
@@ -144,10 +135,10 @@ const Index = () => {
                   <Button 
                     variant="outline" 
                     className="gap-2"
-                    onClick={() => window.open('https://maps.google.com/?q=Sulusai+Resort+Almaty', '_blank')}
+                    onClick={() => window.open('https://maps.app.goo.gl/QYGnUd4ifX9FKcP9A', '_blank')}
                   >
                     <MapPin className="w-4 h-4" />
-                    {t("View venue on map", "Посмотреть место на карте")}
+                    {t("View on map", "Посмотреть на карте")}
                   </Button>
                 </div>
               </CardContent>
@@ -405,6 +396,61 @@ const Index = () => {
                   </div>
                 </AccordionContent>
               </AccordionItem>
+
+              {/* FAQs */}
+              <AccordionItem value="faqs" className="border rounded-lg bg-card px-6">
+                <AccordionTrigger className="hover:no-underline py-6">
+                  <div className="flex items-center gap-3 text-left">
+                    <FileText className="w-6 h-6 text-primary flex-shrink-0" />
+                    <span className="font-serif text-xl md:text-2xl font-semibold text-primary">
+                      {t("FAQs", "Часто задаваемые вопросы")}
+                    </span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="pb-6">
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="font-semibold mb-2">{t("What will the weather be like?", "Какая погода будет?")}</h4>
+                      <p className="text-sm text-muted-foreground">
+                        {t(
+                          "Early August in Almaty is usually warm in the city and cooler in the mountains, especially in the evenings. Bring a light layer for nights outdoors.",
+                          "В начале августа в городе обычно тепло, а в горах прохладнее, особенно вечером. Возьмите лёгкую тёплую одежду."
+                        )}
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="font-semibold mb-2">{t("Can I arrive earlier or stay longer?", "Могу ли я приехать раньше или остаться дольше?")}</h4>
+                      <p className="text-sm text-muted-foreground">
+                        {t(
+                          "Yes! Many guests plan to arrive on Thursday or Friday and stay a few extra days to explore.",
+                          "Да! Многие гости планируют прилететь в четверг или пятницу и остаться на несколько дней."
+                        )}
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="font-semibold mb-2">{t("What about food and dietary restrictions?", "Что насчет еды?")}</h4>
+                      <p className="text-sm text-muted-foreground">
+                        {t(
+                          "Please let us know about any dietary restrictions in your RSVP form so we can accommodate them.",
+                          "Укажите все пищевые ограничения в форме RSVP, чтобы мы могли учесть ваши пожелания."
+                        )}
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="font-semibold mb-2">{t("How will we get to the venue?", "Как доберёмся до места?")}</h4>
+                      <p className="text-sm text-muted-foreground">
+                        {t(
+                          "Closer to the date, we'll share details about transport between Almaty city and Sulusai.",
+                          "Ближе к дате мы поделимся информацией о транспорте из Алматы до Сулусая."
+                        )}
+                      </p>
+                    </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
             </Accordion>
           </div>
         </div>
@@ -479,96 +525,10 @@ const Index = () => {
         </div>
       </section>
 
-      {/* FAQs & Contact Section */}
-      <section id="faqs" className="section-padding bg-background">
-        <div className="container-custom">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-center mb-12 text-primary">
-            {t("FAQs & Contact", "Вопросы и контакты")}
-          </h2>
-
-          <div className="max-w-4xl mx-auto space-y-8">
-            <Card>
-              <CardContent className="p-6 md:p-8">
-                <h3 className="font-serif text-2xl font-semibold mb-6 text-primary">
-                  {t("Frequently Asked Questions", "Часто задаваемые вопросы")}
-                </h3>
-                
-                <div className="space-y-6">
-                  <div>
-                    <h4 className="font-semibold mb-2">{t("What will the weather be like?", "Какая погода будет?")}</h4>
-                    <p className="text-sm text-muted-foreground">
-                      {t(
-                        "Early August in Almaty is usually warm in the city and cooler in the mountains, especially in the evenings. Bring a light layer for nights outdoors.",
-                        "В начале августа в городе обычно тепло, а в горах прохладнее, особенно вечером. Возьмите лёгкую тёплую одежду."
-                      )}
-                    </p>
-                  </div>
-
-                  <div>
-                    <h4 className="font-semibold mb-2">{t("Can I arrive earlier or stay longer?", "Могу ли я приехать раньше или остаться дольше?")}</h4>
-                    <p className="text-sm text-muted-foreground">
-                      {t(
-                        "Yes! Many guests plan to arrive on Thursday or Friday and stay a few extra days to explore.",
-                        "Да! Многие гости планируют прилететь в четверг или пятницу и остаться на несколько дней."
-                      )}
-                    </p>
-                  </div>
-
-                  <div>
-                    <h4 className="font-semibold mb-2">{t("What about food and dietary restrictions?", "Что насчет еды?")}</h4>
-                    <p className="text-sm text-muted-foreground">
-                      {t(
-                        "Please let us know about any dietary restrictions in your RSVP form so we can accommodate them.",
-                        "Укажите все пищевые ограничения в форме RSVP, чтобы мы могли учесть ваши пожелания."
-                      )}
-                    </p>
-                  </div>
-
-                  <div>
-                    <h4 className="font-semibold mb-2">{t("How will we get to the venue?", "Как доберёмся до места?")}</h4>
-                    <p className="text-sm text-muted-foreground">
-                      {t(
-                        "Closer to the date, we'll share details about transport between Almaty city and Sulusai.",
-                        "Ближе к дате мы поделимся информацией о транспорте из Алматы до Сулусая."
-                      )}
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6 md:p-8">
-                <h3 className="font-serif text-2xl font-semibold mb-6 text-primary">
-                  {t("Get in Touch", "Связаться с нами")}
-                </h3>
-                <div className="space-y-4 mb-6">
-                  <p className="text-muted-foreground">
-                    {t(
-                      "If you have any questions about travel, visas, or plans, please feel free to reach out to us.",
-                      "Если у вас есть вопросы о поездке, визе или планах, пожалуйста, не стесняйтесь написать нам."
-                    )}
-                  </p>
-                </div>
-
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <Mail className="w-5 h-5 text-primary" />
-                    <p className="text-sm text-muted-foreground">
-                      {t("Email us: [your email here]", "Написать нам: [ваш email]")}
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="bg-primary text-primary-foreground py-8">
         <div className="container-custom text-center">
-          <p className="font-serif text-2xl mb-2">{t("Su June & Eugene", "Су Джун и Евгений")}</p>
+          <p className="font-serif text-2xl mb-2">{t("June & Eugene", "Джун и Евгений")}</p>
           <p className="text-sm opacity-80">{t("8 August 2026 · Almaty, Kazakhstan", "8 августа 2026 · Алматы, Казахстан")}</p>
         </div>
       </footer>
