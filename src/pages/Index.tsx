@@ -5,11 +5,13 @@ import { MapPin, Mail, Mountain, Plane, FileText, Hotel } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { useParallax } from "@/hooks/useParallax";
 import heroImage from "@/assets/hero-hands.jpg";
 import storyProposal from "@/assets/story-proposal.jpg";
 
 const Index = () => {
   const { t } = useLanguage();
+  const parallaxOffset = useParallax(0.3);
 
   return (
     <div className="min-h-screen">
@@ -19,10 +21,13 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section id="hero" className="relative h-screen flex items-center justify-center">
+      <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroImage})` }}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110"
+          style={{ 
+            backgroundImage: `url(${heroImage})`,
+            transform: `translateY(${parallaxOffset}px) scale(1.1)`
+          }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background/80" />
         </div>
