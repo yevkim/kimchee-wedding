@@ -33,17 +33,17 @@ const Index = () => {
         </div>
 
         <div className="relative z-10 text-center text-foreground px-4">
-          <h1 className="font-serif text-5xl md:text-8xl font-bold mb-4 animate-in fade-in duration-1000">
+          <h1 className="font-serif text-5xl md:text-8xl font-bold mb-4 opacity-0 animate-stagger-reveal" style={{ animationDelay: '0.1s' }}>
             {t("June & Eugene", "Джун и Евгений")}
           </h1>
-          <div className="space-y-2 text-base md:text-xl mb-8 animate-in fade-in duration-1000 delay-200">
+          <div className="space-y-2 text-base md:text-xl mb-8 opacity-0 animate-stagger-reveal" style={{ animationDelay: '0.3s' }}>
             <p>{t(
               "08.08.2026 · Алматы, Казахстан",
               "08.08.2026 · Алматы"
             )}</p>
           </div>
 
-          <div className="max-w-2xl mx-auto mb-10 animate-in fade-in duration-1000 delay-300">
+          <div className="max-w-2xl mx-auto mb-10 opacity-0 animate-stagger-reveal" style={{ animationDelay: '0.5s' }}>
             <p className="text-base md:text-xl font-light">
               {t(
                 "We're getting married in the mountains of Kazakhstan and would love for you to celebrate with us.",
@@ -52,7 +52,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="flex justify-center animate-in fade-in duration-1000 delay-500">
+          <div className="flex justify-center opacity-0 animate-stagger-reveal" style={{ animationDelay: '0.7s' }}>
             <Button
               size="lg"
               onClick={() => document.getElementById('rsvp')?.scrollIntoView({ behavior: 'smooth' })}
@@ -172,7 +172,7 @@ const Index = () => {
               <AccordionItem value="travel" className="border rounded-lg bg-card px-6">
                 <AccordionTrigger className="hover:no-underline py-6">
                   <div className="flex items-center gap-3 text-left">
-                    <Plane className="w-6 h-6 text-primary flex-shrink-0" />
+                    <Plane className="w-6 h-6 text-primary flex-shrink-0 animate-float" />
                     <span className="font-serif text-xl md:text-2xl font-semibold text-primary">
                       {t("Travel to Almaty", "Как добраться")}
                     </span>
@@ -282,7 +282,7 @@ const Index = () => {
               <AccordionItem value="visa" className="border rounded-lg bg-card px-6">
                 <AccordionTrigger className="hover:no-underline py-6">
                   <div className="flex items-center gap-3 text-left">
-                    <FileText className="w-6 h-6 text-primary flex-shrink-0" />
+                    <FileText className="w-6 h-6 text-primary flex-shrink-0 animate-float" style={{ animationDelay: '0.5s' }} />
                     <span className="font-serif text-xl md:text-2xl font-semibold text-primary">
                       {t("Visa & Entry Basics", "Виза")}
                     </span>
@@ -319,7 +319,7 @@ const Index = () => {
               <AccordionItem value="stay" className="border rounded-lg bg-card px-6">
                 <AccordionTrigger className="hover:no-underline py-6">
                   <div className="flex items-center gap-3 text-left">
-                    <Hotel className="w-6 h-6 text-primary flex-shrink-0" />
+                    <Hotel className="w-6 h-6 text-primary flex-shrink-0 animate-float" style={{ animationDelay: '1s' }} />
                     <span className="font-serif text-xl md:text-2xl font-semibold text-primary">
                       {t("Where to Stay", "Проживание")}
                     </span>
@@ -343,7 +343,7 @@ const Index = () => {
 
                     <div className="p-4 bg-primary/5 rounded-lg border border-primary/20">
                       <div className="flex items-start gap-3">
-                        <Mountain className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                        <Mountain className="w-6 h-6 text-primary flex-shrink-0 mt-1 animate-float" style={{ animationDelay: '1.5s' }} />
                         <div>
                           <h4 className="font-semibold text-primary mb-2">Oi Qaragai (Lesnaya Skazka)</h4>
                           <p className="text-sm text-muted-foreground">
@@ -364,7 +364,7 @@ const Index = () => {
               <AccordionItem value="faqs" className="border rounded-lg bg-card px-6">
                 <AccordionTrigger className="hover:no-underline py-6">
                   <div className="flex items-center gap-3 text-left">
-                    <FileText className="w-6 h-6 text-primary flex-shrink-0" />
+                    <FileText className="w-6 h-6 text-primary flex-shrink-0 animate-float" style={{ animationDelay: '2s' }} />
                     <span className="font-serif text-xl md:text-2xl font-semibold text-primary">
                       {t("FAQs", "Часто задаваемые вопросы")}
                     </span>
