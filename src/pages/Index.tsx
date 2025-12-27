@@ -9,6 +9,12 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { useParallax } from "@/hooks/useParallax";
 import heroImage from "@/assets/hero-hands.jpg";
 import storyProposal from "@/assets/story-proposal.jpg";
+import almatyFlights from "@/assets/almaty-flights.png";
+import carAlmaty from "@/assets/car-almaty.jpg";
+import carBao from "@/assets/car-bao.jpg";
+import carCharyn from "@/assets/car-charyn.jpg";
+import carKolsai from "@/assets/car-kolsai-lake.jpg";
+import carMountain from "@/assets/car-mountain.jpeg";
 
 const Index = () => {
   const { t } = useLanguage();
@@ -208,7 +214,7 @@ const Index = () => {
                     </div>
 
                     <img
-                      src="/src/assets/almaty-flights.png"
+                      src={almatyFlights}
                       alt={t("Almaty Flights", "Рейсы в Алматы")}
                       className="w-full h-full object-cover"
                     />
@@ -254,7 +260,7 @@ const Index = () => {
                               <div className="space-y-4">
                                 <div className="aspect-video w-full bg-muted rounded-lg overflow-hidden">
                                   <img
-                                    src="/src/assets/car-almaty.jpg"
+                                    src={carAlmaty}
                                     alt={t("City Exploration", "Исследование города")}
                                     className="w-full h-full object-cover"
                                   />
@@ -276,7 +282,7 @@ const Index = () => {
                               <div className="space-y-4">
                                 <div className="aspect-video w-full bg-muted rounded-lg overflow-hidden">
                                   <img
-                                    src="/src/assets/car-bao.jpg"
+                                    src={carBao}
                                     alt={t("Mountain Lakes", "Горные озёра")}
                                     className="w-full h-full object-cover"
                                   />
@@ -298,7 +304,7 @@ const Index = () => {
                               <div className="space-y-4">
                                 <div className="aspect-video w-full bg-muted rounded-lg overflow-hidden">
                                   <img
-                                    src="/src/assets/car-charyn.jpg"
+                                    src={carCharyn}
                                     alt={t("Charyn Canyon", "Чарынский каньон")}
                                     className="w-full h-full object-cover"
                                   />
@@ -320,7 +326,7 @@ const Index = () => {
                               <div className="space-y-4">
                                 <div className="aspect-video w-full bg-muted rounded-lg overflow-hidden">
                                   <img
-                                    src="/src/assets/car-kolsai-lake.jpg"
+                                    src={carKolsai}
                                     alt={t("Kolsai & Kaindy Lakes", "Озёра Кольсай и Каинды")}
                                     className="w-full h-full object-cover"
                                   />
@@ -342,7 +348,7 @@ const Index = () => {
                               <div className="space-y-4">
                                 <div className="aspect-video w-full bg-muted rounded-lg overflow-hidden">
                                   <img
-                                    src="/src/assets/car-mountain.jpeg"
+                                    src={carMountain}
                                     alt={t("Mountain Resorts", "Горные курорты")}
                                     className="w-full h-full object-cover"
                                   />
