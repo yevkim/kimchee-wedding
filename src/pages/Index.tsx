@@ -78,7 +78,7 @@ const Index = () => {
             <div className="max-w-3xl mx-auto mb-16 text-center">
               <p className="text-lg text-foreground/80">
                 {t(
-                  "We actually met upside down in a yoga class — literally. One chat after class turned into a lunch, then into many more dates, and everything else unfolded naturally from there. The rest of the story… we will save for the wedding.",
+                  "We met upside down in a yoga class — literally. One chat after class turned into a lunch, then into many more dates, and everything else unfolded naturally from there. The rest of the story… we will save for the wedding.",
                   "Мы встретились вверх ногами — в прямом смысле, на классе йоги. Один разговор после тренировки превратился в обед, потом в свидания… а дальше всё сложилось само собой. Полную историю расскажем уже на свадьбе."
                 )}
               </p>
