@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { MapPin, Mail, Mountain, Plane, FileText, Hotel } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
@@ -24,7 +25,7 @@ const Index = () => {
       <section id="hero" className="relative h-screen flex items-start justify-center overflow-hidden pt-24 md:pt-28">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110"
-          style={{ 
+          style={{
             backgroundImage: `url(${heroImage})`,
             transform: `translateY(${parallaxOffset}px) scale(1.1)`
           }}
@@ -49,8 +50,8 @@ const Index = () => {
           <div className="max-w-2xl mx-auto mb-10 opacity-0 animate-stagger-reveal" style={{ animationDelay: '0.6s' }}>
             <p className="text-base md:text-xl font-light">
               {t(
-                "We are getting married in the mountains of Kazakhstan and would love for you to celebrate the union of KimChee with us.",
-                "Мы празднуем свадьбу в горах Казахстана и будем очень рады, если вы отпразднуете союз КимЧи вместе с нами."
+                "We’re getting married in the mountains of Kazakhstan! Join us as we celebrate the union of KimChee.",
+                "Мы женимся в Казахстане! Будем рады видеть вас на нашей свадьбе."
               )}
             </p>
           </div>
@@ -77,27 +78,29 @@ const Index = () => {
             </h2>
           </ScrollReveal>
         </div>
-        
-        <div className="relative">
-          <img
-            src={storyProposal}
-            alt={t("The proposal at Jewel Changi Airport", "Предложение в Jewel Changi Airport")}
-            className="w-full h-auto"
-          />
-          
-          <div className="absolute top-0 left-0 right-0 p-4 md:p-8">
-            <ScrollReveal>
-              <div className="max-w-2xl mx-auto">
-                <div className="bg-background/80 backdrop-blur-sm rounded-lg p-6 md:p-8 text-center shadow-lg">
-                  <p className="text-base md:text-lg text-foreground/90">
-                    {t(
-                      "We met upside down in a yoga class — literally. One chat after class turned into a lunch, then into many more dates, and everything else unfolded naturally from there. The rest of the story… we will save for the wedding.",
-                      "Мы встретились вверх ногами — в прямом смысле, на классе йоги. Один разговор после тренировки превратился в обед, потом в свидания… а дальше всё сложилось само собой. Полную историю расскажем уже на свадьбе."
-                    )}
-                  </p>
+
+        <div className="relative flex justify-center">
+          <div className="relative w-full md:w-auto">
+            <img
+              src={storyProposal}
+              alt={t("The proposal at Jewel Changi Airport", "Предложение в Jewel Changi Airport")}
+              className="w-full h-auto md:max-h-screen md:object-contain"
+            />
+
+            <div className="absolute inset-0 flex items-start justify-center p-4 md:p-8">
+              <ScrollReveal>
+                <div className="w-full max-w-2xl px-4 md:px-8">
+                  <div className="bg-background/80 backdrop-blur-sm rounded-lg p-6 md:p-8 text-center shadow-lg">
+                    <p className="text-base md:text-lg text-foreground/90">
+                      {t(
+                        "We met upside down in a yoga class. One chat turned into lunch, and the rest... we’ll save for the wedding.",
+                        "Мы познакомились на йоге — буквально вниз головой. Короткий разговор после занятия перерос в обед, а остальную историю мы расскажем уже на свадьбе."
+                      )}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </ScrollReveal>
+              </ScrollReveal>
+            </div>
           </div>
         </div>
       </section>
@@ -123,7 +126,7 @@ const Index = () => {
                       Suly Sai Resort & SPA
                       <br />
                       <span className="text-base text-muted-foreground">
-                        {t("Near Almaty, Kazakhstan", "В предгорьях Алматы")}
+                        {t("Lesnaya Skazka, Oi Qaragai, Almaty, Kazakhstan", "Лесная Сказка, Ой Карагай, Алматы, Казахстан")}
                       </span>
                     </p>
                   </div>
@@ -131,8 +134,8 @@ const Index = () => {
                   <div className="space-y-4">
                     <p className="text-foreground/80">
                       {t(
-                        "Our wedding will take place at Suly Sai, a beautiful spot in the mountains just outside Almaty. It will be an outdoor + indoor celebration, surrounded by nature and fresh air.",
-                        "Свадьба пройдёт в Suly Sai. Это красивое место в горах прямо над городом. Праздник будет и на открытом воздухе, и внутри — в окружении природы и свежести."
+                        "We invite you to join us starting at 3:00 PM for an outdoor ceremony on the green lawn of Suly Sai, followed by a reception, dinner, and dancing until late in the resort’s Grand Hall.",
+                        "Ждем вас к 15:00 на церемонию под открытым небом на лужайке Сулу Сай, после чего мы переместимся в банкетный зал отеля на праздничный ужин и танцы до поздней ночи."
                       )}
                     </p>
 
@@ -179,7 +182,7 @@ const Index = () => {
                   <div className="flex items-center gap-3 text-left">
                     <Plane className="w-6 h-6 text-primary flex-shrink-0 animate-float" />
                     <span className="font-serif text-xl md:text-2xl font-semibold text-primary">
-                      {t("Travel to Almaty", "Как добраться")}
+                      {t("Travel to Kazakhstan", "Как добраться")}
                     </span>
                   </div>
                 </AccordionTrigger>
@@ -187,114 +190,10 @@ const Index = () => {
                   <div className="space-y-6">
                     <p className="text-foreground/80">
                       {t(
-                        "Almaty is the largest city in Kazakhstan, set right next to the mountains. It's easy to reach with a combination of regional and international flights. You'll be flying into Almaty International Airport (ALA).",
-                        "Алматы — крупнейший город Казахстана, расположенный у подножия гор. Сюда летает множество удобных рейсов. Вам нужен Международный аэропорт Алматы (ALA)."
+                        "Getting here is easy, with many direct flights from major hubs in Europe and Asia arriving at Almaty International Airport (ALA). To fully enjoy the pre-wedding atmosphere and explore the city, we suggest arriving by Thursday, August 6th.",
+                        "В город летает множество прямых рейсов из Европы и Азии, пункт назначения — Международный аэропорт Алматы (ALA). Чтобы вы успели отдохнуть и познакомиться с городом, мы рекомендуем прилетать в четверг, 6 августа."
                       )}
                     </p>
-
-                    <div className="space-y-4">
-                      <div className="p-4 bg-muted/50 rounded-lg">
-                        <h4 className="font-semibold mb-2">{t("Suggested Itineraries", "Что посмотреть")}</h4>
-                        <p className="text-sm text-muted-foreground">
-                          {t(
-                            "Many guests will arrive on Thursday, celebrate with us on Saturday 8 August, and then stay longer to explore.",
-                            "Многие гости прилетают в четверг и планируют остаться подольше, чтобы погулять по горам и городу."
-                          )}
-                        </p>
-
-                        <div className="p-4 bg-muted/30 rounded-lg">
-                          <p className="text-sm text-foreground/80">
-                            {t(
-                              "These are not fixed tours, just suggestions. You can mix and match or join small group tours with local guides.",
-                              "Это просто идеи для вдохновения. Вы можете свободно менять планы или взять гида."
-                            )}
-                          </p>
-                        </div>
-
-                        {/* 5-Day Itinerary */}
-                        <div className="space-y-4">
-                          <h4 className="font-serif text-lg font-semibold text-primary">
-                            {t("5-Day Extended Trip", "5-дневная поездка")}
-                          </h4>
-                          <div className="space-y-3 text-sm">
-                            <div className="flex gap-3">
-                              <span className="font-semibold text-primary min-w-[80px]">{t("6 August", "6 августа")}</span>
-                              <span className="text-muted-foreground">{t("Arrive, check in, gentle walk", "Прилёт, заселение, прогулка")}</span>
-                            </div>
-                            <div className="flex gap-3">
-                              <span className="font-semibold text-primary min-w-[80px]">{t("7 August", "7 августа")}</span>
-                              <span className="text-muted-foreground">{t("Explore city, Kok Tobe, markets", "Город, Кок‑Тобе, рынки")}</span>
-                            </div>
-                            <div className="flex gap-3">
-                              <span className="font-semibold text-primary min-w-[80px]">{t("8 August", "8 августа")}</span>
-                              <span className="text-muted-foreground">{t("Wedding day!", "День свадьбы!")}</span>
-                            </div>
-                            <div className="flex gap-3">
-                              <span className="font-semibold text-primary min-w-[80px]">{t("9 August", "9 августа")}</span>
-                              <span className="text-muted-foreground">{t("Day trip to lakes (Big Almaty or Issyk)", "Озёра (Большое Алматинское или Иссык)")}</span>
-                            </div>
-                            <div className="flex gap-3">
-                              <span className="font-semibold text-primary min-w-[80px]">{t("10 August", "10 августа")}</span>
-                              <span className="text-muted-foreground">{t("Relax, last sights, departure", "Отдых, покупки, вылет")}</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* 7-Day Itinerary */}
-                        <div className="space-y-4">
-                          <h4 className="font-serif text-lg font-semibold text-primary">
-                            {t("7-Day Full Experience", "7-дневный полный опыт")}
-                          </h4>
-                          <div className="space-y-3 text-sm">
-                            <div className="flex gap-3">
-                              <span className="font-semibold text-primary min-w-[80px]">{t("6-7 August", "6-7 августа")}</span>
-                              <span className="text-muted-foreground">{t("Arrival + city exploration", "Прилёт + город")}</span>
-                            </div>
-                            <div className="flex gap-3">
-                              <span className="font-semibold text-primary min-w-[80px]">{t("8 August", "8 августа")}</span>
-                              <span className="text-muted-foreground">{t("Wedding day", "День свадьбы")}</span>
-                            </div>
-                            <div className="flex gap-3">
-                              <span className="font-semibold text-primary min-w-[80px]">{t("9-10 August", "9-10 августа")}</span>
-                              <span className="text-muted-foreground">{t("Charyn Canyon + Kolsai/Kaindy lakes", "Чарынский каньон + Кольсай/Каинды")}</span>
-                            </div>
-                            <div className="flex gap-3">
-                              <span className="font-semibold text-primary min-w-[80px]">{t("11-12 August", "11-12 августа")}</span>
-                              <span className="text-muted-foreground">{t("Slow city day + departure", "Спа, кофе, вылет")}</span>
-                            </div>
-                          </div>
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                    <div className="p-4 bg-accent/20 rounded-lg border border-accent/30">
-                      <p className="text-sm text-foreground/70">
-                        <strong>{t("Transport to venue:", "Трансфер к месту свадьбы:")}</strong> {t(
-                          "Closer to the wedding, we'll share details about how to get from the city to Suly Sai.",
-                          "Накануне свадьбы мы подскажем, как удобнее добраться из города до Suly Sai."
-                        )}
-                      </p>
-                    </div>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-
-
-
-              {/* Visa & Entry */}
-              <AccordionItem value="visa" className="border rounded-lg bg-card px-6">
-                <AccordionTrigger className="hover:no-underline py-6">
-                  <div className="flex items-center gap-3 text-left">
-                    <FileText className="w-6 h-6 text-primary flex-shrink-0 animate-float" style={{ animationDelay: '0.5s' }} />
-                    <span className="font-serif text-xl md:text-2xl font-semibold text-primary">
-                      {t("Visa & Entry Basics", "Виза")}
-                    </span>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="pb-6">
-                  <div className="space-y-6">
                     <p className="text-foreground/80">
                       {t(
                         "Citizens of Singapore, Malaysia, Germany, Italy, Australia, the United States, and many others can usually enter Kazakhstan visa‑free for a limited number of days.",
@@ -308,17 +207,170 @@ const Index = () => {
                       </a>
                     </div>
 
-                    <div className="p-4 bg-accent/20 rounded-lg border border-accent">
-                      <p className="text-foreground/80">
-                        {t(
-                          "Kazakhstan has a friendly visa policy for many countries. However, rules can change before August 2026, so please always check official sources before you travel.",
-                          "У Казахстана безвизовый режим со многими странами. Но правила могут меняться, поэтому, пожалуйста, проверяйте актуальную информацию перед поездкой."
+                    <img
+                      src="/src/assets/almaty-flights.png"
+                      alt={t("Almaty Flights", "Рейсы в Алматы")}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="p-4 bg-accent/20 rounded-lg border border-accent/30">
+                      <p className="text-sm text-foreground/70">
+                        <strong>{t("Transport to venue:", "Трансфер к месту свадьбы:")}</strong> {t(
+                          "Closer to the wedding, we'll share details about how to get from the city to Suly Sai.",
+                          "Накануне свадьбы мы подскажем, как удобнее добраться из города до Suly Sai."
                         )}
                       </p>
                     </div>
                   </div>
                 </AccordionContent>
               </AccordionItem>
+
+              {/* Top Sights */}
+              <AccordionItem value="top-sights" className="border rounded-lg bg-card px-6">
+                <AccordionTrigger className="hover:no-underline py-6">
+                  <div className="flex items-center gap-3 text-left">
+                    <MapPin className="w-6 h-6 text-primary flex-shrink-0 animate-float" style={{ animationDelay: '0.3s' }} />
+                    <span className="font-serif text-xl md:text-2xl font-semibold text-primary">
+                      {t("Top Sights", "Достопримечательности")}
+                    </span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="pb-6">
+                  <div className="space-y-6">
+                    <div className="space-y-4">
+                      <div className="p-4 bg-muted/50 rounded-lg">
+
+                        <div className="p-4 bg-muted/30 rounded-lg mb-4">
+                          <p className="text-sm text-foreground/80">
+                            {t(
+                              "Kazakhstan is a hidden gem where nomadic traditions meet Silk Road history and legendary hospitality. At its heart lies Almaty: a vibrant mix of European charm and Soviet soul, right at the foot of the Trans-Ili Alatau mountains. Whether you’re sipping specialty coffee in a cozy city cafe or hiking mountain peaks just 30 minutes later, Almaty’s chill vibe is unmatched.",
+                              "Казахстан — это страна с большой душой, где кочевое прошлое переплетается с историей Шелкового пути и искренним гостеприимством. Алматы, «город-сад», уютно устроился прямо у подножия Тянь-Шаня. Здесь европейская архитектура соседствует с советским модернизмом, а лучшие кофейни и бары — с заснеженными пиками. Вайб Алматы просто неповторим: полчаса из центра — и вы уже в горах."
+                            )}
+                          </p>
+                        </div>
+                        {/* Carousel of Places to Visit */}
+                        <Carousel className="w-full">
+                          <CarouselContent>
+                            <CarouselItem>
+                              <div className="space-y-4">
+                                <div className="aspect-video w-full bg-muted rounded-lg overflow-hidden">
+                                  <img
+                                    src="/src/assets/car-almaty.jpg"
+                                    alt={t("City Exploration", "Исследование города")}
+                                    className="w-full h-full object-cover"
+                                  />
+                                </div>
+                                <div>
+                                  <h4 className="font-serif text-lg font-semibold text-primary mb-2">
+                                    {t("City Exploration", "Исследование города")}
+                                  </h4>
+                                  <p className="text-sm text-foreground/80">
+                                    {t(
+                                      "Explore Almaty's vibrant city center, visit Kok Tobe for panoramic views, and discover local markets filled with traditional crafts and delicious food.",
+                                      "Исследуйте центр Алматы, посетите Кок‑Тобе для панорамных видов и откройте для себя местные рынки с традиционными ремеслами и вкусной едой."
+                                    )}
+                                  </p>
+                                </div>
+                              </div>
+                            </CarouselItem>
+                            <CarouselItem>
+                              <div className="space-y-4">
+                                <div className="aspect-video w-full bg-muted rounded-lg overflow-hidden">
+                                  <img
+                                    src="/src/assets/car-bao.jpg"
+                                    alt={t("Mountain Lakes", "Горные озёра")}
+                                    className="w-full h-full object-cover"
+                                  />
+                                </div>
+                                <div>
+                                  <h4 className="font-serif text-lg font-semibold text-primary mb-2">
+                                    {t("Mountain Lakes", "Горные озёра")}
+                                  </h4>
+                                  <p className="text-sm text-foreground/80">
+                                    {t(
+                                      "Take a day trip to Big Almaty Lake or Issyk Lake, surrounded by stunning mountain scenery. Perfect for hiking and photography.",
+                                      "Совершите однодневную поездку на Большое Алматинское озеро или озеро Иссык, окруженные потрясающими горными пейзажами. Идеально для пеших прогулок и фотографии."
+                                    )}
+                                  </p>
+                                </div>
+                              </div>
+                            </CarouselItem>
+                            <CarouselItem>
+                              <div className="space-y-4">
+                                <div className="aspect-video w-full bg-muted rounded-lg overflow-hidden">
+                                  <img
+                                    src="/src/assets/car-charyn.jpg"
+                                    alt={t("Charyn Canyon", "Чарынский каньон")}
+                                    className="w-full h-full object-cover"
+                                  />
+                                </div>
+                                <div>
+                                  <h4 className="font-serif text-lg font-semibold text-primary mb-2">
+                                    {t("Charyn Canyon", "Чарынский каньон")}
+                                  </h4>
+                                  <p className="text-sm text-foreground/80">
+                                    {t(
+                                      "Visit the breathtaking Charyn Canyon, often called the 'Grand Canyon of Kazakhstan'. A natural wonder with dramatic rock formations and scenic viewpoints.",
+                                      "Посетите захватывающий Чарынский каньон, часто называемый 'Гранд-Каньоном Казахстана'. Природное чудо с драматическими скальными образованиями и живописными смотровыми площадками."
+                                    )}
+                                  </p>
+                                </div>
+                              </div>
+                            </CarouselItem>
+                            <CarouselItem>
+                              <div className="space-y-4">
+                                <div className="aspect-video w-full bg-muted rounded-lg overflow-hidden">
+                                  <img
+                                    src="/src/assets/car-kolsai-lake.jpg"
+                                    alt={t("Kolsai & Kaindy Lakes", "Озёра Кольсай и Каинды")}
+                                    className="w-full h-full object-cover"
+                                  />
+                                </div>
+                                <div>
+                                  <h4 className="font-serif text-lg font-semibold text-primary mb-2">
+                                    {t("Kolsai & Kaindy Lakes", "Озёра Кольсай и Каинды")}
+                                  </h4>
+                                  <p className="text-sm text-foreground/80">
+                                    {t(
+                                      "Discover the stunning Kolsai Lakes and the unique sunken forest of Kaindy Lake. These emerald lakes are hidden gems in the Tien Shan mountains.",
+                                      "Откройте для себя потрясающие озёра Кольсай и уникальный затопленный лес озера Каинды. Эти изумрудные озёра — скрытые жемчужины в горах Тянь-Шаня."
+                                    )}
+                                  </p>
+                                </div>
+                              </div>
+                            </CarouselItem>
+                            <CarouselItem>
+                              <div className="space-y-4">
+                                <div className="aspect-video w-full bg-muted rounded-lg overflow-hidden">
+                                  <img
+                                    src="/src/assets/car-mountain.jpeg"
+                                    alt={t("Mountain Resorts", "Горные курорты")}
+                                    className="w-full h-full object-cover"
+                                  />
+                                </div>
+                                <div>
+                                  <h4 className="font-serif text-lg font-semibold text-primary mb-2">
+                                    {t("Mountain Resorts & Relaxation", "Горные курорты и отдых")}
+                                  </h4>
+                                  <p className="text-sm text-foreground/80">
+                                    {t(
+                                      "Enjoy the peaceful mountain atmosphere at resorts like Oi Qaragai. Perfect for spa treatments, nature walks, and unwinding before or after the wedding.",
+                                      "Насладитесь спокойной горной атмосферой в таких курортах, как Ой Карагай. Идеально для спа-процедур, прогулок на природе и отдыха до или после свадьбы."
+                                    )}
+                                  </p>
+                                </div>
+                              </div>
+                            </CarouselItem>
+                          </CarouselContent>
+                          <CarouselPrevious className="left-2 md:left-4" />
+                          <CarouselNext className="right-2 md:right-4" />
+                        </Carousel>
+
+                      </div>
+                    </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+
 
               {/* Where to Stay */}
               <AccordionItem value="stay" className="border rounded-lg bg-card px-6">
@@ -381,18 +433,27 @@ const Index = () => {
                       <h4 className="font-semibold mb-2">{t("What will the weather be like?", "Какая погода будет?")}</h4>
                       <p className="text-sm text-muted-foreground">
                         {t(
-                          "Early August in Almaty is usually warm in the city and cooler in the mountains, especially in the evenings. Bring a light layer for nights outdoors.",
-                          "В начале августа в городе обычно тепло, а в горах прохладнее, особенно вечером. Возьмите лёгкую тёплую одежду."
+                          "Early August in Almaty is usually warm in the city (~30°C) and cooler in the mountains, especially in the evenings. Bring a light layer for nights outdoors.",
+                          "В начале августа в Алматы обычно жарко (~30°C), но в горах прохладнее, особенно по вечерам. Возьмите с собой легкую куртку или кардиган для вечерних прогулок."
+                        )}
+                      </p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2">{t("What currency is used?", "Какая валюта используется?")}</h4>
+                      <p className="text-sm text-muted-foreground">
+                        {t(
+                          "The local currency is the Kazakhstani Tenge (KZT). Cards (Visa/Mastercard) are widely accepted in cafes and shops, but it's good to have some cash for markets or small tips. You can exchange USD or EUR easily at local exchange offices.",
+                          "Официальная валюта — казахстанский тенге (KZT). Почти везде принимают карты (Visa/Mastercard), но для рынков или чаевых лучше иметь при себе немного наличных. Обменять валюту (USD/EUR) можно в любом обменнике города."
                         )}
                       </p>
                     </div>
 
                     <div>
-                      <h4 className="font-semibold mb-2">{t("Can I arrive earlier or stay longer?", "Могу ли я приехать раньше или остаться дольше?")}</h4>
+                      <h4 className="font-semibold mb-2">{t("Which apps should I download?", "Какие приложения мне нужно скачать?")}</h4>
                       <p className="text-sm text-muted-foreground">
                         {t(
-                          "Yes! Many guests plan to arrive on Thursday or Friday and stay a few extra days to explore.",
-                          "Да! Многие гости планируют прилететь в четверг или пятницу и остаться на несколько дней."
+                          "For taxis and food delivery, download Yandex Go (works like Uber or Grab). For city navigation and finding the best spots, 2GIS is more detailed than Google Maps.",
+                          "Для заказа такси и доставки еды скачайте Yandex Go (работает как Uber или Grab). А для навигации и поиска мест лучше всего использовать 2GIS — он здесь точнее, чем Google Maps."
                         )}
                       </p>
                     </div>
@@ -401,21 +462,12 @@ const Index = () => {
                       <h4 className="font-semibold mb-2">{t("What about food and dietary restrictions?", "Что насчет еды?")}</h4>
                       <p className="text-sm text-muted-foreground">
                         {t(
-                          "Please let us know about any dietary restrictions in your RSVP form so we can accommodate them.",
-                          "Укажите все пищевые ограничения в форме RSVP, чтобы мы могли учесть ваши пожелания."
+                          "Please let us know about any allergies or restrictions in your RSVP form so we can plan the menu accordingly.",
+                          "Пожалуйста, укажите ваши диетические предпочтения или аллергии в форме RSVP, чтобы мы могли это учесть при составлении меню."
                         )}
                       </p>
                     </div>
 
-                    <div>
-                      <h4 className="font-semibold mb-2">{t("How will we get to the venue?", "Как доберёмся до места?")}</h4>
-                      <p className="text-sm text-muted-foreground">
-                        {t(
-                          "Closer to the date, we'll share details about transport between Almaty city and Suly Sai.",
-                          "Ближе к дате мы поделимся информацией о транспорте из Алматы до Сулусая."
-                        )}
-                      </p>
-                    </div>
                   </div>
                 </AccordionContent>
               </AccordionItem>
@@ -440,43 +492,12 @@ const Index = () => {
                     <div className="text-center">
                       <p className="text-lg text-foreground/80">
                         {t(
-                          "If you have received an invitation from us, we would be very happy if you could let us know whether you can join.",
-                          "Если вы получили от нас приглашение, нам будет очень приятно, если вы сообщите, сможете ли приехать."
+                          "We can’t wait to celebrate with you! Invited guests only: Please RSVP by [Date].",
+                          "Мы очень ждем встречи с вами! Только для приглашенных гостей: Пожалуйста, подтвердите участие до [Дата]."
                         )}
                       </p>
                     </div>
 
-                    <div className="p-6 bg-accent/30 rounded-lg border border-accent/50 space-y-4">
-                      <p className="font-semibold text-center">{t("Important:", "Важно:")}</p>
-                      <div className="space-y-3 text-sm">
-                        <p className="text-foreground/80">
-                          {t(
-                            "To help us plan the day and the seating carefully, please note:",
-                            "Чтобы всем было комфортно, обратите внимание:"
-                          )}
-                        </p>
-                        <ul className="space-y-2 text-foreground/70">
-                          <li>• {t(
-                            "Only invited guests should fill in the RSVP form.",
-                            "Заполнять форму RSVP должны только гости, которые получили персональное приглашение."
-                          )}</li>
-                          <li>• {t(
-                            "Please do not bring additional plus‑ones unless they are clearly included in your invitation.",
-                            "К сожалению, мы не сможем принять гостей +1, если они не указаны в приглашении."
-                          )}</li>
-                          <li>• {t(
-                            "Please do not bring children unless they are specifically invited.",
-                            "Мы также очень просим вас воздержаться от визита с детьми, если они не приглашены отдельно."
-                          )}</li>
-                        </ul>
-                        <p className="text-foreground/70 pt-2">
-                          {t(
-                            "Thank you for understanding and helping us keep the celebration personal and comfortable for everyone.",
-                            "Спасибо за понимание и за то, что помогаете нам сделать праздник личным и комфортным для всех гостей."
-                          )}
-                        </p>
-                      </div>
-                    </div>
                   </div>
 
                   <div className="text-center">
